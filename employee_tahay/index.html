@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.12/cropper.min.css" />
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+		<link rel="stylesheet" href="index.css" />
+		<link rel="icon" href="favicon.ico" type="image/x-icon" />
+		<title>Editable Document</title>
+	</head>
+	<body>
+		<!-- Image Toolbar -->
+		<div class="toolbar" id="toolbar">
+			<!-- Image-related actions -->
+			<button id="bgRemoveBtn">
+				<i class="fas fa-eraser"></i>
+				<span class="tooltip">Remove Background</span>
+			</button>
+			<button id="resizeBtn">
+				<i class="fas fa-expand"></i>
+				<span class="tooltip">Resize</span>
+			</button>
+			<button id="resetBtn">
+				<i class="fas fa-compress"></i>
+				<span class="tooltip">Reset Size</span>
+			</button>
+			<button id="flipBtn">
+				<i class="fas fa-arrows-alt-v"></i>
+				<span class="tooltip">Flip</span>
+			</button>
+		</div>
+
+		<!-- Text Toolbar -->
+		<div class="text-toolbar" id="text-toolbar">
+			<!-- Text-related actions -->
+			<select id="font-selector" style="font-size: 16px">
+				<!-- Options dynamically populated -->
+			</select>
+
+			<button id="decrease-font" title="Decrease Font Size"><i class="fas fa-minus"></i></button>
+			<input type="text" value="16" id="font-size" style="width: 50px; text-align: center; font-size: 16px; border: 1px solid #ddd; border-radius: 4px" />
+			<button id="increase-font" title="Increase Font Size"><i class="fas fa-plus"></i></button>
+
+			<button id="bold-button" title="Bold"><i class="fas fa-bold"></i></button>
+			<button id="italic-button" title="Italic"><i class="fas fa-italic"></i></button>
+			<button id="underline-button" title="Underline"><i class="fas fa-underline"></i></button>
+
+			<button id="align-left" title="Align Left"><i class="fas fa-align-left"></i></button>
+			<button id="align-center" title="Align Center"><i class="fas fa-align-center"></i></button>
+			<button id="align-right" title="Align Right"><i class="fas fa-align-right"></i></button>
+
+			<button class="text-color-picker" title="Change Text Color">
+				<span class="icon" id="text-icon">A</span>
+				<input type="color" id="text-color-picker" value="#000000" />
+			</button>
+		</div>
+
+		<!-- Student ID -->
+		<div class="pinakamain">
+			<div class="main-container">
+				<div class="main-one">
+					<div class="one">
+						<div class="logo">
+							<img src="mlg_logo_frm_ppt.png" alt="MLG Logo" />
+							<p style="font-family: 'Poppins', sans-serif; font-weight: bold; letter-spacing: 1.1px">
+								MLG COLLEGE <br />
+								OF LEARNING, INC<br />
+							</p>
+							<p style="font-family: Arial; font-size: 6px; letter-spacing: 1.2px">Brgy. Atabay, Hilongos, Leyte</p>
+						</div>
+						<div class="qr-code">
+							<img src="qr.png" alt="Student QR Code" />
+						</div>
+						<div class="signature">
+							<img src="sig.png" alt="Signature" id="draggableImageSignature" />
+						</div>
+						<div class="main-image">
+							<div class="image">
+								<img src="sheesh.jpg" alt="Student Image" id="draggableImage" />
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="circle"></div>
+				<div class="mainconsaubos">
+					<div class="main-two">
+						<div class="main-name">
+							<div class="name editable" contenteditable="true" id="editable-text-name">
+								<h3>LUMIGUID<br />CHRISTINA P.</h3>
+							</div>
+							<div class="brgy editable" contenteditable="true" id="editable-text-brgy">
+								<p>Brgy. Bagumbayan, Hilongos</p>
+							</div>
+						</div>
+						<div class="date editable" contenteditable="true" id="editable-text-date">
+							<p>Date of birth:<br />12/08/2003</p>
+						</div>
+					</div>
+					<div class="numcourse">
+						<div class="number editable" contenteditable="true" id="editable-text-number">
+							<h4>0-15-0050-01</h4>
+						</div>
+						<div class="course editable" contenteditable="true" id="editable-text-course">
+							<h4>Department Head</h4>
+						</div>
+					</div>
+					<div class="last">
+						<div class="num1">
+							<p>https://mlgcl.edu.ph</p>
+						</div>
+						<div class="num2">
+							<p>mlg@mlgcl.edu.ph</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- Back of the ID -->
+			<div class="likod">
+				<div class="likod-one">
+					<div class="one-right">
+						<div class="parag">
+							<p>
+								This is to certify that the person whose
+								<br />
+								picture and signature appear herein is a <br />
+								bonafide student of <br />
+								<span class="parag1span">MLG College of Learning, Inc.</span>
+							</p>
+						</div>
+						<div class="parag-name">
+							<p>
+								MARY LILIBETH O. YAN, DEV.ED.D
+								<span>
+									<br />
+									School Director
+								</span>
+							</p>
+						</div>
+						<div class="tableNo">
+							<table>
+								<tr>
+									<td>TIN #</td>
+									<td class="num">292-429-675</td>
+									<td>PhilHealth #</td>
+									<td class="num">01-051293562-7</td>
+								</tr>
+								<tr>
+									<td>SSS #</td>
+									<td class="num">34-1976221-1</td>
+									<td>HDMF #</td>
+									<td class="num">1210-2944-8122</td>
+								</tr>
+							</table>
+						</div>
+						<div class="parag2">
+							<p>
+								<span class="span">IMPORTANT REMINDERS </span> <br />
+								Always wear this ID while inside the school campus. <br />
+								<span class="span1">DO NOT FORGET YOUR STUDENT ID NUMBER.</span>
+							</p>
+						</div>
+						<div class="parag3">
+							<p>
+								If lost and found, please surrender this ID to the <br />
+								SCHOOL DIRECTOR'S OFFICE. MLG College of Learning, <br />
+								Inc. Brgy. Atabay, Hilongos, Leyte
+							</p>
+						</div>
+						<div class="parag4" id="editable-text-parag4">
+							<p>
+								In case of emergency, please contact <br />
+								<span class="editable" id="editable-contact">
+									<span id="editable-name" contenteditable="true">MARIA LORNA DEDAL</span> <br />
+									<span id="editable-number" contenteditable="true">0920-8876-778</span>
+								</span>
+							</p>
+						</div>
+						<div class="parag5">
+							<p>PLEASE SCAN THE QR CODE AT THE FRONT <br />FOR MORE VALIDATION & CONTACT <br />INFORMATION.</p>
+						</div>
+					</div>
+				</div>
+				<div class="likod-two">
+					<div class="likod-two-last">
+						<svg width="15px" height="15px" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" fill="none">
+							<path
+								fill="#1877F2"
+								d="M15 8a7 7 0 00-7-7 7 7 0 00-1.094 13.915v-4.892H5.13V8h1.777V6.458c0-1.754 
+                            1.045-2.724 2.644-2.724.766 0 1.567.137 1.567.137v1.723h-.883c-.87 0-1.14.54-1.14 1.093V8h1.941l-.31 2.023H9.094v4.892A7.001 7.001 0 0015 8z"
+							/>
+							<path
+								fill="#ffffff"
+								d="M10.725 10.023L11.035 8H9.094V6.687c0-.553.27-1.093 1.14-1.093h.883V3.87s-.801-.137-1.567-.137c-1.6 0-2.644.97-2.644 
+                            2.724V8H5.13v2.023h1.777v4.892a7.037 7.037 0 002.188 0v-4.892h1.63z"
+							/>
+						</svg>
+						<p>https://www.facebook.com/mlgcl/</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- Image Toolbar JS FUNCTIONALITY -->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.12/cropper.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/interactjs/dist/interact.min.js"></script>
+		<script src="index.js"></script>
+	</body>
+</html>
